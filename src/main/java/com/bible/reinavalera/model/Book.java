@@ -1,14 +1,16 @@
 package com.bible.reinavalera.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "books")
+@Table(name = "bible_books")
 public class Book {
 
     @Id
+    @Column(name = "idBook")
     private Integer idBook;
 
     private String name;
