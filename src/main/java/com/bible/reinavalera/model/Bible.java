@@ -2,10 +2,8 @@ package com.bible.reinavalera.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "bible_bibles")
 public class Bible {
 
     @Id

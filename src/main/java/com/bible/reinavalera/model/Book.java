@@ -1,12 +1,14 @@
 package com.bible.reinavalera.model;
 
-import javax.persistence.Column;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
-@Table(name = "bible_books")
 public class Book {
 
     @Id
@@ -14,6 +16,10 @@ public class Book {
 
     private String name;
     private String testament;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bookIdBook")
+    @JsonIgnore
+    private List<BookReference> references;
 
     public Integer getIdBook() {
         return idBook;
@@ -37,5 +43,13 @@ public class Book {
 
     public void setTestament(String testament) {
         this.testament = testament;
+    }
+
+    public List<BookReference> getReferences() {
+        return references;
+    }
+
+    public void setReferences(List<BookReference> references) {
+        this.references = references;
     }
 }
