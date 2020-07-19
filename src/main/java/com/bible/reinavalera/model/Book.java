@@ -10,7 +10,6 @@ import javax.persistence.Table;
 public class Book {
 
     @Id
-    @Column(name = "idBook")
     private Integer idBook;
 
     private String name;
