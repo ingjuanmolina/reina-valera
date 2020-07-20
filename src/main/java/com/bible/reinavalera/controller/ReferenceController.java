@@ -1,7 +1,7 @@
 package com.bible.reinavalera.controller;
 
 import com.bible.reinavalera.model.BookReference;
-import com.bible.reinavalera.repository.ReferenceRepository;
+import com.bible.reinavalera.service.ReferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +13,15 @@ import java.util.List;
 @RequestMapping("references")
 public class ReferenceController {
 
-    private final ReferenceRepository referenceRepository;
+    private final ReferenceService referenceService;
 
     @Autowired
-    public ReferenceController(ReferenceRepository referenceRepository) {
-        this.referenceRepository = referenceRepository;
+    public ReferenceController(ReferenceService referenceService) {
+        this.referenceService = referenceService;
     }
 
     @GetMapping
     public List<BookReference> findAll() {
-        return referenceRepository.findAll();
+        return referenceService.findAll();
     }
 }

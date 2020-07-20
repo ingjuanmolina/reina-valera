@@ -21,6 +21,10 @@ public class Book {
     @JsonIgnore
     private List<BookReference> references;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idBook")
+    @JsonIgnore
+    private List<Verse> verses;
+
     public Integer getIdBook() {
         return idBook;
     }
@@ -51,5 +55,13 @@ public class Book {
 
     public void setReferences(List<BookReference> references) {
         this.references = references;
+    }
+
+    public List<Verse> getVerses() {
+        return verses;
+    }
+
+    public void setVerses(List<Verse> verses) {
+        this.verses = verses;
     }
 }
