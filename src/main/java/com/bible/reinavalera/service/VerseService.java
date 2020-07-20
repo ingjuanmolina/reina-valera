@@ -24,4 +24,8 @@ public class VerseService {
     public List<Verse> findByTextContaining(String text) {
         return verseRepository.findByTextContaining(text);
     }
+
+    public List<Verse> findByBookAndChapter(Integer idBook, Integer chapter) {
+        return verseRepository.findVerseByBookAndChapter(idBook, chapter);
+    }
 }

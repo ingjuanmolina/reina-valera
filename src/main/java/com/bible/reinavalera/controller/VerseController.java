@@ -1,6 +1,7 @@
 package com.bible.reinavalera.controller;
 
 import com.bible.reinavalera.model.Verse;
+import com.bible.reinavalera.service.BookService;
 import com.bible.reinavalera.service.VerseService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,13 @@ public class VerseController {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(VerseController.class);
 
-    private VerseService verseService;
+    private final VerseService verseService;
+    private final BookService bookService;
 
     @Autowired
-
-    public VerseController(VerseService verseService) {
+    public VerseController(VerseService verseService, BookService bookService) {
         this.verseService = verseService;
+        this.bookService = bookService;
     }
 
     @GetMapping
@@ -34,5 +36,12 @@ public class VerseController {
     public List<Verse> findByText(@PathVariable("text") String text) {
         LOGGER.info("Search text: {}", text);
         return verseService.findByTextContaining(text);
+    }
+
+    @GetMapping("/book/{bookId}/chapter/{chapter}")
+    public List<Verse> findByBookAndChapter(@PathVariable("bookId") Integer bookId, @PathVariable("chapter") Integer chapter) {
+        LOGGER.info("Book: {} Chapter: {}", bookId, chapter);
+        //Book foundBook = bookService.findById(bookId);
+        return verseService.findByBookAndChapter(bookId, chapter);
     }
 }

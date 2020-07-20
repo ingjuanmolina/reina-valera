@@ -20,4 +20,8 @@ public class BookService {
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
+
+    public Book findById(Integer id) {
+        return bookRepository.getOne(id);
+    }
 }
