@@ -10,6 +10,15 @@
 <body>
 <div class="nav"></div>
 
+<br/>
+<h2>Versículo del día</h2>
+<br/>
+/verses/book/51/chapter/3#17
+<a th:href="@{'/verses/book/' + ${book.getIdBook()} + '/chapter/' + ${verse.getChapter()} + '#' + ${verse.getVerse()}}">
+    <h3><span th:text="${book.getName()}" /> <span th:text="${verse.getChapter()}" />, <span th:text="${verse.getVerse()}" /></h3>
+</a>
+<p><span th:text="${verse.getText()}" /></p>
+
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

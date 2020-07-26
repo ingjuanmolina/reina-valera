@@ -24,7 +24,7 @@ public class ChapterController {
 
     @GetMapping("/book/{idBook}")
     public String getAllChapters(@PathVariable("idBook") Integer idBook, Model model) {
-        model.addAttribute("chapters", verseService.findChaptersByBookId(idBook));
+        model.addAttribute("chapters", verseService.findTotalChaptersByBookId(idBook));
         model.addAttribute("book", bookService.findById(idBook));
         return "chapters";
     }

@@ -29,7 +29,7 @@ public class VerseService {
         return verseRepository.findVerseByBookAndChapter(idBook, chapter);
     }
 
-    public List<Integer> findChaptersByBookId(Integer idBook) {
-        return verseRepository.findChaptersByBookId(idBook);
+    public List<Integer> findTotalChaptersByBookId(Integer idBook) {
+        return verseRepository.findTotalChaptersByBookId(idBook);
     }
 }

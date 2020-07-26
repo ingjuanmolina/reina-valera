@@ -19,7 +19,7 @@
     </tr>
     </thead>
     <tr th:each="verse :${verses}">
-        <td  th:text="${verse.getVerse()}" scope="row"></td>
+        <td th:id="${verse.getVerse()}" scope="row"><span th:text="${verse.getVerse()}" /></td>
         <td  th:text="${verse.getText()}" scope="row"></td>
     </tr>
 </table>

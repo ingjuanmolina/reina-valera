@@ -13,17 +13,13 @@
     <table th:object="${books}" id="bookTable" class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Testament</th>
+                <th scope="col">Libro</th>
             </tr>
         </thead>
         <tr th:each="book :${books}">
-            <td  th:text="${book.getIdBook()}" scope="row"></td>
             <td  scope="row">
                 <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}"><span th:text="${book.getName()}" /></a>
             </td>
-            <td  th:text="${book.getTestament()}" scope="row"></td>
         </tr>
     </table>
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
