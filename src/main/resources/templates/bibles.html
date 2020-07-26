@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bibles</title>
+</head>
+<body>
+    <h2>Bibles</h2>
+
+    <table th:object="${bibles}" id="bibleTable" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        <tr th:each="bible :${bibles}">
+            <td  th:text="${bible.getIdBible()}"></td>
+            <td  th:text="${bible.getName()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

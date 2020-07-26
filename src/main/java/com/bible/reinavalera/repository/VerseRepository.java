@@ -15,4 +15,7 @@ public interface VerseRepository extends JpaRepository<Verse, Integer>, Reposito
     @Query("SELECT v FROM Verse v WHERE v.idBook.idBook = :idBook and v.chapter = :chapter")
     List<Verse> findVerseByBookAndChapter(@Param("idBook") Integer idBook, @Param("chapter") Integer chapter);
 
+    @Query("SELECT DISTINCT(v.chapter) FROM Verse v WHERE v.idBook.idBook = :idBook")
+    List<Integer> findChaptersByBookId(@Param("idBook") Integer idBook);
+
 }

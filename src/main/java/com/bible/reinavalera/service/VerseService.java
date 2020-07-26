@@ -28,4 +28,8 @@ public class VerseService {
     public List<Verse> findByBookAndChapter(Integer idBook, Integer chapter) {
         return verseRepository.findVerseByBookAndChapter(idBook, chapter);
     }
+
+    public List<Integer> findChaptersByBookId(Integer idBook) {
+        return verseRepository.findChaptersByBookId(idBook);
+    }
 }

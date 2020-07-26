@@ -5,14 +5,15 @@ import com.bible.reinavalera.service.BookService;
 import com.bible.reinavalera.service.VerseService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("verses")
 public class VerseController {
 
@@ -28,8 +29,9 @@ public class VerseController {
     }
 
     @GetMapping
-    public List<Verse> findAll() {
-        return verseService.findAll();
+    public String findAll(Model model) {
+        model.addAttribute("verses", verseService.findAll());
+        return "verses";
     }
 
     @GetMapping("/text/{text}")
@@ -39,9 +41,12 @@ public class VerseController {
     }
 
     @GetMapping("/book/{bookId}/chapter/{chapter}")
-    public List<Verse> findByBookAndChapter(@PathVariable("bookId") Integer bookId, @PathVariable("chapter") Integer chapter) {
+    public String findByBookAndChapter(@PathVariable("bookId") Integer bookId, @PathVariable("chapter") Integer chapter, Model model) {
         LOGGER.info("Book: {} Chapter: {}", bookId, chapter);
-        //Book foundBook = bookService.findById(bookId);
-        return verseService.findByBookAndChapter(bookId, chapter);
+        List<Verse> verses = verseService.findByBookAndChapter(bookId, chapter);
+        model.addAttribute("verses", verses);
+        model.addAttribute("book", verses.get(0).getIdBook());
+        model.addAttribute("chapter", chapter);
+        return "verses-by-book-and-chapter.html";
     }
 }

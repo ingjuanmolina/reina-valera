@@ -1,15 +1,33 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link th:href="@{/css/styles.css}" rel="stylesheet" />
-    <title>Home</title>
+    <title>Versículos</title>
 </head>
 <body>
 <div class="nav"></div>
-
+<table th:object="${books}" id="bookTable" class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Book</th>
+        <th scope="col">Verse</th>
+        <th scope="col">Chapter</th>
+        <th scope="col">Text</th>
+    </tr>
+    </thead>
+    <tr th:each="verse :${verses}">
+        <td  th:text="${verse.getIdVerse()}" scope="row"></td>
+        <td  th:text="${verse.getIdBook().getName()}" scope="row"></td>
+        <td  th:text="${verse.getVerse()}" scope="row"></td>
+        <td  th:text="${verse.getChapter()}" scope="row"></td>
+        <td  th:text="${verse.getText()}" scope="row"></td>
+    </tr>
+</table>
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
