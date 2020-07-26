@@ -10,18 +10,54 @@
 </head>
 <body>
     <div class="nav"></div>
-    <table th:object="${books}" id="bookTable" class="table">
+    <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Libro</th>
+                <th scope="col">Libros</th>
             </tr>
         </thead>
-        <tr th:each="book :${books}">
-            <td  scope="row">
-                <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}"><span th:text="${book.getName()}" /></a>
+        <tr>
+            <td scope="row">
+                <table id="bookTable" class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Antíguo Testamento</th>
+                        <th scope="col">Nuevo Testamento</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td scope="row">
+                            <table th:object="${books}" id="oldBookTable" class="table">
+                                <tr th:each="book :${books}">
+                                    <td th:if="${book.getTestament().equals('O')}" scope="row">
+                                        <span>
+                                            <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}">
+                                                <span th:text="${book.getName()}" />
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td  scope="row">
+                            <table th:object="${books}" id="newBookTable" class="table">
+                                <tr th:each="book :${books}">
+                                    <td th:if="${book.getTestament().equals('N')}" scope="row">
+                                        <span>
+                                            <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}">
+                                                <span th:text="${book.getName()}" />
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>
+
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

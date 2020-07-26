@@ -13,7 +13,7 @@
 <br/>
 <h2>Versículo del día</h2>
 <br/>
-/verses/book/51/chapter/3#17
+
 <a th:href="@{'/verses/book/' + ${book.getIdBook()} + '/chapter/' + ${verse.getChapter()} + '#' + ${verse.getVerse()}}">
     <h3><span th:text="${book.getName()}" /> <span th:text="${verse.getChapter()}" />, <span th:text="${verse.getVerse()}" /></h3>
 </a>
