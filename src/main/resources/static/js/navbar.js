@@ -9,7 +9,7 @@ const navbarHTML = `
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="http://localhost:8080/books">Libros</a>
-                <a class="nav-item nav-link" href="http://localhost:8080/verses">Versículos</a>
+                <a class="nav-item nav-link" href="http://localhost:8080/search">Buscar</a>
             </div>
         </div>
     </nav>
