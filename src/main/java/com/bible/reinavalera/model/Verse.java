@@ -68,4 +68,16 @@ public class Verse {
     public void setIdBook(Book idBook) {
         this.idBook = idBook;
     }
+
+    @Override
+    public String toString() {
+        return "Verse{" +
+                "idVerse=" + idVerse +
+                ", chapter=" + chapter +
+                ", verse=" + verse +
+                ", text='" + text + '\'' +
+                ", idBible=" + idBible +
+                ", idBook=" + idBook +
+                '}';
+    }
 }

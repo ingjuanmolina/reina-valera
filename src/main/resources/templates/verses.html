@@ -13,21 +13,25 @@
 <table th:object="${books}" id="bookTable" class="table">
     <thead class="thead-dark">
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Book</th>
-        <th scope="col">Verse</th>
-        <th scope="col">Chapter</th>
-        <th scope="col">Text</th>
+        <th scope="col">Libro</th>
+        <th scope="col">Capítulo</th>
+        <th scope="col">Versículo</th>
+        <th scope="col">Abrir</th>
+        <th scope="col">Texto</th>
     </tr>
     </thead>
     <tr th:each="verse :${verses}">
-        <td  th:text="${verse.getIdVerse()}" scope="row"></td>
         <td  th:text="${verse.getIdBook().getName()}" scope="row"></td>
-        <td  th:text="${verse.getVerse()}" scope="row"></td>
         <td  th:text="${verse.getChapter()}" scope="row"></td>
+        <td  th:text="${verse.getVerse()}" scope="row"></td>
+        <td>
+            <a th:href="@{'/verses/book/' + ${verse.getIdBook().getIdBook()} + '/chapter/' + ${verse.getChapter()} + '#' + ${verse.getVerse()}}">
+                Ir</a>
+        </td>
         <td  th:text="${verse.getText()}" scope="row"></td>
     </tr>
 </table>
+
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

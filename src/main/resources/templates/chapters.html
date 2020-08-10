@@ -11,7 +11,7 @@
 <body>
 <div class="nav"></div>
 <h2><span th:text="${book.getName()}" /></h2>
-<table th:object="${chapters}" id="chapters" class="table">
+<table th:object="${chapters}" id="chapters" class="table table-hover">
     <thead class="thead-dark">
     <tr>
         <th scope="col">Capítulo</th>
@@ -19,7 +19,7 @@
     </thead>
     <tr th:each="chapter :${chapters}">
         <td  scope="row">
-            <a th:href="@{'/verses/book/' + ${book.getIdBook()} + '/chapter/' + ${chapter}}"><span th:text="${chapter}" /></a>
+            <a th:href="@{'/verses/book/' + ${book.getIdBook()} + '/chapter/' + ${chapter}}">Capítulo <span th:text="${chapter}" /></a>
         </td>
     </tr>
 </table>

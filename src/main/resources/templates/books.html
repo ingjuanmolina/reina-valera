@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link th:href="@{/css/styles.css}" rel="stylesheet" />
-    <title>Books</title>
+    <title>Libros</title>
 </head>
 <body>
     <div class="nav"></div>
@@ -27,7 +27,7 @@
                     </thead>
                     <tr>
                         <td scope="row">
-                            <table th:object="${books}" id="oldBookTable" class="table">
+                            <table th:object="${books}" id="oldBookTable" class="table table-hover">
                                 <tr th:each="book :${books}">
                                     <td th:if="${book.getTestament().equals('O')}" scope="row">
                                         <span>
@@ -40,7 +40,7 @@
                             </table>
                         </td>
                         <td  scope="row">
-                            <table th:object="${books}" id="newBookTable" class="table">
+                            <table th:object="${books}" id="newBookTable" class="table table-hover">
                                 <tr th:each="book :${books}">
                                     <td th:if="${book.getTestament().equals('N')}" scope="row">
                                         <span>

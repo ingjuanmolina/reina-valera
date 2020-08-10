@@ -13,18 +13,53 @@
 <br/>
 
 <div >
-    <div class=" h1 alert alert-dark" role="alert">
-        Buscar
+    <div class=" h3 alert alert-primary" role="alert">
+        Buscar por texto
     </div>
-<form class="form-inline" action="#" th:action="@{/search/text}" method="post">
-    <div class="form-group row">
-        <div class="col-sm-10">
-            <input type="text" class="form-control form-control-lg" id="colFormLabelLg"
-                   placeholder="Texto" th:value="${text}" name="text">
+    <form class="form-inline" action="#" th:action="@{/search/text}" method="post">
+        <div class="form-group row">
+            <div class="col-md-10">
+                <input type="text" class="form-control form-control-lg" id="colFormLabelLg"
+                       placeholder="Texto" th:value="${text}" name="text">
+            </div>
         </div>
+        <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+    </form>
+</div>
+
+<div >
+    <div class=" h3 alert alert-primary" role="alert">
+        Buscar por versículo
     </div>
-    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-</form>
+    <div class="container-fluid">
+        <!-- <form action="#" th:action="@{'/verse/book/' + '51' + '/chapter/' + '17'}" method="post"> -->
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="inputState">Libro</label>
+                    <select th:object="${books}" id="inputState" class="form-control">
+                        <div th:each="book :${books}">
+                            <option>
+                                <span th:text="${book.getName()}" />
+                            </option>
+                        </div>
+
+                    </select>
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="inputCity">Capítulo</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="inputZip">Versículo</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+            </div>
+            <!--  <button type="submit" class="btn btn-primary">Buscar</button> -->
+            <a href="#" class="btn btn-primary">Buscar</a>
+        </form>
+    </div>
+
 </div>
 <!--
 <a th:href="@{'/verses/book/' + ${book.getIdBook()} + '/chapter/' + ${verse.getChapter()} + '#' + ${verse.getVerse()}}">
