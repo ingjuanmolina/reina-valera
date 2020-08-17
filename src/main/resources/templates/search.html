@@ -32,7 +32,6 @@
         Buscar por versículo
     </div>
     <div class="container-fluid">
-        <!-- <form action="#" th:action="@{'/verse/book/' + '51' + '/chapter/' + '17'}" method="post"> -->
         <form>
             <div class="form-row">
                 <div class="form-group col-md-2">
@@ -55,18 +54,10 @@
                     <input type="text" class="form-control" id="inputZip">
                 </div>
             </div>
-            <!--  <button type="submit" class="btn btn-primary">Buscar</button> -->
             <a href="#" class="btn btn-primary">Buscar</a>
         </form>
     </div>
-
 </div>
-<!--
-<a th:href="@{'/verses/book/' + ${book.getIdBook()} + '/chapter/' + ${verse.getChapter()} + '#' + ${verse.getVerse()}}">
-    <h3><span th:text="${book.getName()}" /> <span th:text="${verse.getChapter()}" />, <span th:text="${verse.getVerse()}" /></h3>
-</a>
-<p><span th:text="${verse.getText()}" /></p>
--->
 
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
