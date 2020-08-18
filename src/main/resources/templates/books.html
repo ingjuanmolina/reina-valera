@@ -11,11 +11,6 @@
 <body>
     <div class="nav"></div>
     <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Libros</th>
-            </tr>
-        </thead>
         <tr>
             <td scope="row">
                 <table id="bookTable" class="table">
@@ -32,7 +27,7 @@
                                     <td th:if="${book.getTestament().equals('O')}" scope="row">
                                         <span>
                                             <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}">
-                                                <span th:text="${book.getName()}" />
+                                                <span class="badge badge-primary" th:text="${book.getName()}" />
                                             </a>
                                         </span>
                                     </td>
@@ -45,7 +40,7 @@
                                     <td th:if="${book.getTestament().equals('N')}" scope="row">
                                         <span>
                                             <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}">
-                                                <span th:text="${book.getName()}" />
+                                                <span class="badge badge-primary" th:text="${book.getName()}" />
                                             </a>
                                         </span>
                                     </td>
