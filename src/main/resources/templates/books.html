@@ -11,7 +11,7 @@
     <div class="nav"></div>
     <table class="table">
         <tr>
-            <td scope="row">
+            <td>
                 <table id="bookTable" class="table">
                     <thead class="thead-dark">
                     <tr>
@@ -20,10 +20,10 @@
                     </tr>
                     </thead>
                     <tr>
-                        <td scope="row">
+                        <td>
                             <table th:object="${books}" id="oldBookTable" class="table table-hover">
                                 <tr th:each="book :${books}">
-                                    <td th:if="${book.getTestament().equals('O')}" scope="row">
+                                    <td th:if="${book.getTestament().equals('O')}">
                                         <span>
                                             <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}">
                                                 <span class="badge badge-primary" th:text="${book.getName()}" />
@@ -36,7 +36,7 @@
                         <td  scope="row">
                             <table th:object="${books}" id="newBookTable" class="table table-hover">
                                 <tr th:each="book :${books}">
-                                    <td th:if="${book.getTestament().equals('N')}" scope="row">
+                                    <td th:if="${book.getTestament().equals('N')}">
                                         <span>
                                             <a th:href="@{'/chapters/book/' + ${book.getIdBook()}}">
                                                 <span class="badge badge-primary" th:text="${book.getName()}" />
