@@ -21,8 +21,8 @@
         <td>
             <a th:href="@{'/verses/book/' + ${verse.getIdBook().getIdBook()} + '/chapter/' + ${verse.getChapter()} + '#' + ${verse.getVerse()}}">
                 <span class="badge badge-primary">
-                    <span th:text=  "${verse.getIdBook().getName()}" /> <span th:text="${verse.getChapter()}" />,
-                    <span th:text="${verse.getVerse()}" />
+                    <span th:text=  "${verse.getIdBook().getName()}"></span> <span th:text="${verse.getChapter()}"></span>,
+                    <span th:text="${verse.getVerse()}"></span>
                 </span>
             </a>
         </td>
