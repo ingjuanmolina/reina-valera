@@ -39,7 +39,7 @@
                     <select th:object="${books}" id="inputState" class="form-control">
                         <div th:each="book :${books}">
                             <option>
-                                <span th:text="${book.getName()}" />
+                                <span th:text="${book.getName()}"></span>
                             </option>
                         </div>
 
