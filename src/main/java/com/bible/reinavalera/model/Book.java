@@ -64,4 +64,14 @@ public class Book {
     public void setVerses(List<Verse> verses) {
         this.verses = verses;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "idBook=" + idBook +
+                ", name='" + name + '\'' +
+                ", testament='" + testament + '\'' +
+                ", references=" + references +
+                '}';
+    }
 }
