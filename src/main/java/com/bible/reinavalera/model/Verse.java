@@ -11,6 +11,7 @@ public class Verse {
 
     private Integer chapter;
     private Integer verse;
+    @Column(length = 500)
     private String text;
 
     @ManyToOne
