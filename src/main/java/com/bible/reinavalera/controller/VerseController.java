@@ -44,6 +44,9 @@ public class VerseController {
     public String findByBookAndChapter(@PathVariable("bookId") Integer bookId, @PathVariable("chapter") Integer chapter, Model model) {
         LOGGER.info("Book: {} Chapter: {}", bookId, chapter);
         List<Verse> verses = verseService.findByBookAndChapter(bookId, chapter);
+        if (verses.isEmpty()) {
+            return "verses";
+        }
         model.addAttribute("verses", verses);
         model.addAttribute("book", verses.get(0).getIdBook());
         model.addAttribute("chapter", chapter);
