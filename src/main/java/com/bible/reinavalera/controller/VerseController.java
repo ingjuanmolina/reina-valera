@@ -22,6 +22,9 @@ public class VerseController {
     private final VerseService verseService;
     private final BookService bookService;
 
+    private final int MAX_NUMBER_OF_BOOKS = 66;
+    private final int MIN_NUMBER_OF_BOOKS = 1;
+
     @Autowired
     public VerseController(VerseService verseService, BookService bookService) {
         this.verseService = verseService;
@@ -43,13 +46,32 @@ public class VerseController {
     @GetMapping("/book/{bookId}/chapter/{chapter}")
     public String findByBookAndChapter(@PathVariable("bookId") Integer bookId, @PathVariable("chapter") Integer chapter, Model model) {
         LOGGER.info("Book: {} Chapter: {}", bookId, chapter);
-        List<Verse> verses = verseService.findByBookAndChapter(bookId, chapter);
-        if (verses.isEmpty()) {
+        int totalChapters = verseService.findTotalChaptersByBookId(bookId).size();
+
+        if (bookId > MAX_NUMBER_OF_BOOKS) {
+            LOGGER.error("Book id can't be greater than " + MAX_NUMBER_OF_BOOKS);
+            return "books";
+        }
+
+        if (bookId < MIN_NUMBER_OF_BOOKS) {
+            LOGGER.error("Book id can't be lesser than " + MIN_NUMBER_OF_BOOKS);
+            return "books";
+        }
+
+        if (chapter > totalChapters) {
+            String bookName = bookService.findById(bookId).getName();
+            LOGGER.info("Target book: {} Chapter: {}", bookId, chapter);
+            LOGGER.error("{} contains only {} chapters.", bookName, totalChapters);
             return "verses";
         }
+
+        List<Verse> verses = verseService.findByBookAndChapter(bookId, chapter);
+
         model.addAttribute("verses", verses);
         model.addAttribute("book", verses.get(0).getIdBook());
         model.addAttribute("chapter", chapter);
+        String title = verses.get(0).getIdBook().getName() + " " + chapter;
+        model.addAttribute("title", title);
         return "verses-by-book-and-chapter.html";
     }
 }
