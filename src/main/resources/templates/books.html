@@ -7,9 +7,9 @@
     <link th:href="@{/css/styles.css}" rel="stylesheet" />
     <title>Libros</title>
 </head>
-<body>
+<body class="bg-dark">
     <div class="nav"></div>
-    <table class="table">
+    <table class="table table-dark table-hover">
         <tr>
             <td>
                 <table class="table" id="bookTable">
@@ -21,7 +21,7 @@
                     </thead>
                     <tr>
                         <td>
-                            <table class="table table-hover" id="oldBookTable" th:object="${books}">
+                            <table class="table table-dark table-hover" id="oldBookTable" th:object="${books}">
                                 <tr th:each="book :${books}">
                                     <td th:if="${book.getTestament().equals('O')}">
                                         <span>
