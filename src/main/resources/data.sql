@@ -19155,7 +19155,7 @@ INSERT INTO `verse` (`id_verse`, `id_bible`, `id_book`, `chapter`, `verse`, `tex
 (19025, 1, 24, 3, 22, 'Convertíos, hijos rebeldes, y sanaré vuestras rebeliones. He aquí nosotros venimos a ti, porque tú eres Jehová nuestro Dios.'),
 (19026, 1, 24, 3, 23, 'Ciertamente vanidad son los collados, y el bullicio sobre los montes; ciertamente en Jehová nuestro Dios está la salvación de Israel.'),
 (19027, 1, 24, 3, 24, 'Confusión consumió el trabajo de nuestros padres desde nuestra juventud; sus ovejas, sus vacas, sus hijos y sus hijas.'),
-(19028, 1, 24, 3, 25, 'Yacemos en nuestra confusión, y nuestra afrenta nos cubre; porque pecamos contra Jehová nuestro Dios, nosotros y nuestros padres, desde nuestra juventud y hasta este día, y no hemos escuchado la voz de'),
+(19028, 1, 24, 3, 25, 'Yacemos en nuestra confusión, y nuestra afrenta nos cubre; porque pecamos contra Jehová nuestro Dios, nosotros y nuestros padres, desde nuestra juventud y hasta este día, y no hemos escuchado la voz de Jehová nuestro Dios.'),
 (19029, 1, 24, 4, 1, 'Si te volvieres, oh Israel, dice Jehová, vuélvete a mí. Y si quitares de delante de mí tus abominaciones, y no anduvieres de acá para allá,'),
 (19030, 1, 24, 4, 2, 'y jurares: Vive Jehová, en verdad, en juicio y en justicia, entonces las naciones serán benditas en él, y en él se gloriarán.'),
 (19031, 1, 24, 4, 3, 'Porque así dice Jehová a todo varón de Judá y de Jerusalén: Arad campo para vosotros, y no sembréis entre espinos.'),

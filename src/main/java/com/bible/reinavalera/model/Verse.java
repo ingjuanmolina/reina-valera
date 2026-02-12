@@ -1,6 +1,6 @@
 package com.bible.reinavalera.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 //@NamedQuery(name = "Verse.findByText", query = "SELECT v FROM Verse v WHERE LOWER(v.text) LIKE LOWER(?1)")
